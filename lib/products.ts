@@ -42,7 +42,6 @@ const products: Product[] = [
     name: "Sofá 3 Lugares Comfort",
     description: "Sofá confortável de 3 lugares com estofado em tecido de alta qualidade. Perfeito para sala de estar.",
     price: 1299.99,
-    originalPrice: 1599.99,
     category: "Sofás",
     images: [
       "/placeholder.svg?height=400&width=600&text=Sofá+3+Lugares",
@@ -101,11 +100,11 @@ const products: Product[] = [
     weight: 12,
   },
   {
-    id: "estante-livros-5-prateleiras",
-    name: "Estante para Livros 5 Prateleiras",
+    id: "Cama Casal",
+    name: "Cama e base, casal mola ensacada",
     description: "Estante moderna com 5 prateleiras ajustáveis. Ideal para organizar livros e decoração.",
     price: 329.99,
-    category: "Estantes",
+    category: "Camas",
     images: ["/placeholder.svg?height=400&width=600&text=Estante+5+Prateleiras"],
     inStock: true,
     isNew: true,
@@ -121,6 +120,7 @@ const products: Product[] = [
     category: "Camas",
     images: ["/placeholder.svg?height=400&width=600&text=Cama+Box+Casal"],
     inStock: true,
+    isNew: true,
     materials: ["Madeira", "Molas Ensacadas", "Tecido"],
     dimensions: { width: 138, height: 60, depth: 188 },
     weight: 65,
@@ -159,31 +159,37 @@ const promotions: Promotion[] = [
   {
     id: "promo-sofa-comfort",
     productId: "sofa-3-lugares-comfort",
-    discount: 18.8,
+    discount: 18,
     isActive: true,
   },
   {
     id: "promo-guarda-roupa",
     productId: "guarda-roupa-6-portas",
-    discount: 17.4,
+    discount: 17,
     isActive: true,
   },
   {
     id: "promo-sofa-2-lugares",
     productId: "sofa-2-lugares-moderno",
-    discount: 25.0,
+    discount: 25,
+    isActive: true,
+  },
+  {
+    id: "promo-cama-casal-box",
+    productId: "cama-casal-box",
+    discount: 25,
     isActive: true,
   },
 ]
 
 export const categories: Category[] = [
   { id: "sofas", name: "Sofás", slug: "sofas", image: "/images/categories/sofas.jpg" },
-  { id: "mesas", name: "Mesas", slug: "mesas" },
-  { id: "cadeiras", name: "Cadeiras", slug: "cadeiras" },
-  { id: "guarda-roupas", name: "Guarda-Roupas", slug: "guarda-roupas" },
-  { id: "balcoes", name: "Balcões", slug: "balcoes" },
-  { id: "racks", name: "Racks", slug: "racks" },
-  { id: "camas", name: "Camas", slug: "camas" },
+  { id: "mesas", name: "Mesas", slug: "mesas", image: "/images/categories/mesa1.webp" },
+  { id: "cadeiras", name: "Cadeiras", slug: "cadeiras", image: "/images/categories/cadeira.webp" },
+  { id: "guarda-roupas", name: "Guarda-Roupas", slug: "guarda-roupas", image: "/images/categories/gurada_roupa.webp" },
+  { id: "balcoes", name: "Balcões", slug: "balcoes", image: "/images/categories/balcao.webp" },
+  { id: "racks", name: "Racks", slug: "racks", image: "/images/categories/rack_sala.jpg" },
+  { id: "camas", name: "Camas", slug: "camas", image: "/images/categories/cama_casal.jpg" },
 ]
 
 export function getAllProducts(): Product[] {
