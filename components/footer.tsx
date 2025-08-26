@@ -66,11 +66,9 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-amber-400 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">
-                  Setor Comercial Sul
+                  Santa Maria
                   <br />
                   Brasília - DF
-                  <br />
-                  CEP: 70300-000
                 </span>
               </li>
               <li className="flex items-center space-x-3">
@@ -94,6 +92,8 @@ export default function Footer() {
                   Seg - Sex: 8h às 18h
                   <br />
                   Sáb: 8h às 12h
+                  <br/>
+                  Dom: Fechado
                 </span>
               </li>
             </ul>
@@ -101,7 +101,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">© 2024 Carvalho Móveis. Todos os direitos reservados.</p>
+          <p className="text-gray-400 text-sm">© 2020 Carvalho Móveis. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

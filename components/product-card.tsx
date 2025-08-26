@@ -67,8 +67,21 @@ export default function ProductCard({ product, viewMode = "grid" }: ProductCardP
                       Novo
                     </Badge>
                   )}
-                  {hasDiscount && <Badge variant="destructive">-{discountPercentage}%</Badge>}
+                  {hasDiscount && (
+                    <Badge
+                      variant="destructive"
+                      className="bg-red-500 text-white font-bold text-sm px-3 py-1 animate-pulse shadow-lg border-2 border-red-600"
+                    >
+                      -{discountPercentage}% OFF
+                    </Badge>
+                  )}
                 </div>
+
+                {hasDiscount && (
+                  <div className="absolute top-0 right-0 bg-gradient-to-l from-red-500 to-red-600 text-white text-xs font-bold px-3 py-1 transform rotate-12 translate-x-2 -translate-y-1 shadow-lg">
+                    PROMOÇÃO
+                  </div>
+                )}
               </div>
 
               <Link href={`/produto/${product.id}`} className="flex-1">
@@ -88,13 +101,18 @@ export default function ProductCard({ product, viewMode = "grid" }: ProductCardP
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="text-2xl font-bold text-amber-600">
+                      <span className={`text-2xl font-bold ${hasDiscount ? "text-red-600" : "text-amber-600"}`}>
                         R$ {product.price.toFixed(2).replace(".", ",")}
                       </span>
                       {hasDiscount && (
-                        <span className="text-sm text-gray-500 line-through">
-                          R$ {product.originalPrice!.toFixed(2).replace(".", ",")}
-                        </span>
+                        <div className="flex flex-col">
+                          <span className="text-sm text-gray-500 line-through">
+                            R$ {product.originalPrice!.toFixed(2).replace(".", ",")}
+                          </span>
+                          <span className="text-xs text-green-600 font-medium">
+                            Economize R$ {(product.originalPrice! - product.price).toFixed(2).replace(".", ",")}
+                          </span>
+                        </div>
                       )}
                     </div>
                     {!product.inStock && <Badge variant="outline">Fora de Estoque</Badge>}
@@ -120,7 +138,9 @@ export default function ProductCard({ product, viewMode = "grid" }: ProductCardP
   // Grid view (existing layout)
   return (
     <>
-      <Card className="group hover:shadow-lg transition-all duration-300">
+      <Card
+        className={`group hover:shadow-lg transition-all duration-300 ${hasDiscount ? "ring-2 ring-red-200 hover:ring-red-300" : ""}`}
+      >
         <CardContent className="p-0">
           <div className="relative">
             <Link href={`/produto/${product.id}`}>
@@ -153,8 +173,21 @@ export default function ProductCard({ product, viewMode = "grid" }: ProductCardP
                   Novo
                 </Badge>
               )}
-              {hasDiscount && <Badge variant="destructive">-{discountPercentage}%</Badge>}
+              {hasDiscount && (
+                <Badge
+                  variant="destructive"
+                  className="bg-red-500 text-white font-bold text-sm px-3 py-1 animate-pulse shadow-lg border-2 border-red-600"
+                >
+                  -{discountPercentage}% OFF
+                </Badge>
+              )}
             </div>
+
+            {hasDiscount && (
+              <div className="absolute top-0 right-0 bg-gradient-to-l from-red-500 to-red-600 text-white text-xs font-bold px-3 py-1 transform rotate-12 translate-x-2 -translate-y-1 shadow-lg">
+                PROMOÇÃO
+              </div>
+            )}
           </div>
 
           <Link href={`/produto/${product.id}`}>
@@ -170,13 +203,18 @@ export default function ProductCard({ product, viewMode = "grid" }: ProductCardP
               </h3>
               <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
               <div className="flex items-center gap-2">
-                <span className="text-2xl font-bold text-amber-600">
+                <span className={`text-2xl font-bold ${hasDiscount ? "text-red-600" : "text-amber-600"}`}>
                   R$ {product.price.toFixed(2).replace(".", ",")}
                 </span>
                 {hasDiscount && (
-                  <span className="text-sm text-gray-500 line-through">
-                    R$ {product.originalPrice!.toFixed(2).replace(".", ",")}
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-sm text-gray-500 line-through">
+                      R$ {product.originalPrice!.toFixed(2).replace(".", ",")}
+                    </span>
+                    <span className="text-xs text-green-600 font-medium">
+                      Economize R$ {(product.originalPrice! - product.price).toFixed(2).replace(".", ",")}
+                    </span>
+                  </div>
                 )}
               </div>
               {!product.inStock && (

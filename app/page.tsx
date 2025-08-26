@@ -105,11 +105,16 @@ export default function HomePage() {
 
       {/* Featured Products Section - Only shows if there are promotions */}
       {featuredProducts.length > 0 && (
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
+        <section className="py-16 bg-gradient-to-br from-red-50 to-pink-50 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-red-100/20 to-pink-100/20"></div>
+          <div className="container mx-auto px-4 relative">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Produtos em Promoção</h2>
-              <p className="text-gray-600 text-lg">Aproveite nossas ofertas especiais</p>
+              <div className="inline-flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4 animate-pulse">
+                🔥 OFERTAS ESPECIAIS
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-red-700">Produtos em Promoção</h2>
+              <p className="text-gray-600 text-lg">Aproveite nossas ofertas especiais com descontos imperdíveis!</p>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {featuredProducts.map((product) => (
@@ -117,7 +122,12 @@ export default function HomePage() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button asChild variant="outline" size="lg">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-red-500 text-red-600 hover:bg-red-500 hover:text-white bg-transparent"
+              >
                 <Link href="/produtos">
                   Ver Todos os Produtos
                   <ArrowRight className="ml-2 h-4 w-4" />

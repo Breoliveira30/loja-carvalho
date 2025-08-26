@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Carvalho Móveis - Móveis de Qualidade",
   description: "Transforme sua casa com nossos móveis únicos e duradouros. Qualidade e elegância desde 2020.",
-  generator: "v0.app",
+
   icons: {
     icon: "/images/favicon-32x32.png", // favicon circular (precisa estar na pasta /public)
   },
