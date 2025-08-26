@@ -60,7 +60,8 @@ const products: Product[] = [
     id: "mesa-jantar-madeira",
     name: "Mesa de Jantar em Madeira Maciça",
     description: "Mesa de jantar para 6 pessoas em madeira maciça com acabamento natural.",
-    price: 899.99,
+    price: 674.99,
+    originalPrice:899.99,
     category: "Mesas",
     images: [
       "/placeholder.svg?height=400&width=600&text=Mesa+Jantar",
@@ -79,8 +80,8 @@ const products: Product[] = [
     originalPrice: 2299.99,
     category: "Guarda-Roupas",
     images: [
-      "/placeholder.svg?height=400&width=600&text=Guarda-Roupa+6+Portas",
-      "/placeholder.svg?height=400&width=600&text=Interior+Guarda-Roupa",
+      "/armario02.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
+      "/armario03.png?height=400&width=600&text=Interior+Guarda-Roupa",
     ],
     inStock: true,
     materials: ["MDF", "Dobradiças Metálicas"],
@@ -159,30 +160,37 @@ const promotions: Promotion[] = [
   {
     id: "promo-sofa-comfort",
     productId: "sofa-3-lugares-comfort",
-    discount: 18.8,
+    discount: 18,
     isActive: true,
   },
   {
     id: "promo-guarda-roupa",
     productId: "guarda-roupa-6-portas",
-    discount: 17.4,
+    discount: 17,
     isActive: true,
   },
   {
     id: "promo-sofa-2-lugares",
     productId: "sofa-2-lugares-moderno",
-    discount: 25.0,
+    discount: 25,
     isActive: true,
   },
+  {
+    id: "promo-mesa-jantar-madeira",
+    productId: "mesa-jantar-madeira",
+    discount: 25,
+    isActive: true,
+  },
+  
 ]
 
 export const categories: Category[] = [
   { id: "sofas", name: "Sofás", slug: "sofas", image: "/images/categories/sofas.jpg" },
-  { id: "mesas", name: "Mesas", slug: "mesas", image: "/images/categories/sofas.jpg" },
-  { id: "cadeiras", name: "Cadeiras", slug: "cadeiras", image: "/images/categories/sofas.jpg" },
-  { id: "guarda-roupas", name: "Guarda-Roupas", slug: "guarda-roupas", image: "/images/categories/sofas.jpg" },
+  { id: "mesas", name: "Mesas", slug: "mesas", image: "/images/categories/mesa1.webp" },
+  { id: "cadeiras", name: "Cadeiras", slug: "cadeiras", image: "/images/categories/cadeira.webp" },
+  { id: "guarda-roupas", name: "Guarda-Roupas", slug: "guarda-roupas", image: "/images/categories/gurada_roupa.webp" },
   { id: "balcoes", name: "Balcões", slug: "balcoes", image: "/images/categories/balcao.webp" },
-  { id: "racks", name: "Racks", slug: "racks", image: "/images/categories/sofas.jpg" },
+  { id: "racks", name: "Racks", slug: "racks", image: "/images/categories/rack_sala.jpg" },
   { id: "camas", name: "Camas", slug: "camas", image: "/images/categories/cama_casal.jpg" },
 ]
 
