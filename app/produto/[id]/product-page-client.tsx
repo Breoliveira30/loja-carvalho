@@ -5,9 +5,20 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { type Product, getPromotionByProductId } from "@/lib/products"
+import type { Product } from "@/lib/products"
 import ImageModal from "@/components/image-modal"
-import { MessageCircle, Ruler, Package, Palette, Eye, Truck, Clock, CreditCard } from "lucide-react"
+import {
+  MessageCircle,
+  Ruler,
+  Package,
+  Palette,
+  Eye,
+  Truck,
+  Clock,
+  CreditCard,
+  Flame,
+  TrendingDown,
+} from "lucide-react"
 
 interface ProductPageClientProps {
   product: Product
@@ -18,13 +29,13 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [hovering, setHovering] = useState(false)
 
-  const promotion = getPromotionByProductId(product.id)
-  const hasDiscount = promotion && promotion.isActive
-  const discountedPrice = hasDiscount ? product.price * (1 - promotion.discount / 100) : product.price
-  const discountPercentage = hasDiscount ? promotion.discount : 0
+  const hasDiscount = product.originalPrice && product.originalPrice > product.price
+  const discountPercentage = hasDiscount
+    ? Math.round(((product.originalPrice! - product.price) / product.originalPrice!) * 100)
+    : 0
 
   const handleWhatsAppClick = () => {
-    const message = `Olá! Tenho interesse no produto: ${product.name} - R$ ${discountedPrice.toFixed(2).replace(".", ",")}. Gostaria de mais informações sobre disponibilidade e condições de pagamento.`
+    const message = `Olá! Tenho interesse no produto: ${product.name} - R$ ${product.price.toFixed(2).replace(".", ",")}. Gostaria de mais informações sobre disponibilidade e condições de pagamento.`
     const whatsappUrl = `https://wa.me/5561998605145?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
@@ -101,6 +112,30 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
 
           {/* Product Info */}
           <div className="space-y-6">
+            {hasDiscount && (
+              <Card className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 border-0 shadow-xl">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between text-white">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-white/20 p-3 rounded-full">
+                        <Flame className="h-8 w-8 text-white animate-pulse" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold uppercase tracking-wider">🔥 Promoção Especial</p>
+                        <p className="text-3xl font-black">{discountPercentage}% OFF</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-sm font-medium">Economize</p>
+                      <p className="text-2xl font-bold">
+                        R$ {(product.originalPrice! - product.price).toFixed(2).replace(".", ",")}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Badge variant="outline" className="text-xs">
@@ -112,20 +147,31 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-3">
-                <span className="text-3xl font-bold text-amber-600">
-                  R$ {discountedPrice.toFixed(2).replace(".", ",")}
-                </span>
-                {hasDiscount && (
-                  <span className="text-xl text-gray-500 line-through">
+              {hasDiscount ? (
+                <div className="bg-red-50 border-2 border-red-200 rounded-lg p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <TrendingDown className="h-5 w-5 text-red-600" />
+                    <span className="text-sm font-semibold text-red-600 uppercase">Preço Promocional</span>
+                  </div>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-4xl font-black text-red-600">
+                      R$ {product.price.toFixed(2).replace(".", ",")}
+                    </span>
+                    <span className="text-xl text-gray-500 line-through">
+                      R$ {product.originalPrice!.toFixed(2).replace(".", ",")}
+                    </span>
+                  </div>
+                  <p className="text-green-700 font-bold mt-2 text-lg">
+                    💰 Você economiza R$ {(product.originalPrice! - product.price).toFixed(2).replace(".", ",")} nesta
+                    compra!
+                  </p>
+                </div>
+              ) : (
+                <div className="flex items-center gap-3">
+                  <span className="text-3xl font-bold text-amber-600">
                     R$ {product.price.toFixed(2).replace(".", ",")}
                   </span>
-                )}
-              </div>
-              {hasDiscount && (
-                <p className="text-green-600 font-medium">
-                  Você economiza R$ {(product.price - discountedPrice).toFixed(2).replace(".", ",")}
-                </p>
+                </div>
               )}
             </div>
 

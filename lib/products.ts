@@ -56,6 +56,20 @@ const products: Product[] = [
     weight: 45,
     colors: ["Cinza", "Bege", "Azul"],
   },
+   {
+    id: "sofa-2-lugares-moderno",
+    name: "Sofá 2 Lugares Moderno",
+    description: "Sofá compacto de 2 lugares com design contemporâneo. Ideal para apartamentos pequenos.",
+    price: 899.99,
+    originalPrice: 1199.99,
+    category: "Sofás",
+    images: ["/placeholder.svg?height=400&width=600&text=Sofá+2+Lugares"],
+    inStock: true,
+    materials: ["Tecido", "Espuma D28", "Madeira"],
+    dimensions: { width: 140, height: 85, depth: 90 },
+    weight: 35,
+    colors: ["Azul", "Verde", "Cinza"],
+  },
   {
     id: "mesa-jantar-madeira",
     name: "Mesa de Jantar em Madeira Maciça",
@@ -73,23 +87,6 @@ const products: Product[] = [
     weight: 35,
   },
   {
-    id: "guarda-roupa-6-portas",
-    name: "Guarda-Roupa 6 Portas",
-    description: "Guarda-roupa espaçoso com 6 portas e gavetas internas. Ideal para quartos grandes.",
-    price: 1899.99,
-    originalPrice: 2299.99,
-    category: "Guarda-Roupas",
-    images: [
-      "/armario02.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
-      "/armario03.png?height=400&width=600&text=Interior+Guarda-Roupa",
-    ],
-    inStock: true,
-    materials: ["MDF", "Dobradiças Metálicas"],
-    dimensions: { width: 270, height: 220, depth: 60 },
-    weight: 80,
-    colors: ["Branco", "Carvalho", "Preto"],
-  },
-  {
     id: "cadeira-escritorio-ergonomica",
     name: "Cadeira de Escritório Ergonômica",
     description: "Cadeira ergonômica com apoio lombar e regulagem de altura. Perfeita para home office.",
@@ -102,44 +99,36 @@ const products: Product[] = [
     weight: 12,
   },
   {
-    id: "estante-livros-5-prateleiras",
-    name: "Estante para Livros 5 Prateleiras",
-    description: "Estante moderna com 5 prateleiras ajustáveis. Ideal para organizar livros e decoração.",
-    price: 329.99,
-    category: "Estantes",
-    images: ["/placeholder.svg?height=400&width=600&text=Estante+5+Prateleiras"],
-    inStock: true,
-    isNew: true,
-    materials: ["MDP", "Fita de Borda"],
-    dimensions: { width: 80, height: 180, depth: 30 },
-    weight: 25,
-  },
-  {
-    id: "mesa-centro-vidro",
-    name: "Mesa de Centro em Vidro",
-    description: "Mesa de centro moderna com tampo de vidro temperado e base em metal cromado.",
-    price: 399.99,
+    id: "mesa-celeste",
+    name: "Mesa de Celeste",
+    description: "Conjunto de Mesa Celeste 4 Lugares em Freijó com Off White, feito em MDF/MDP, com tampo fixo resistente e design moderno para valorizar sua sala de jantar.",
+    price: 1899,
     category: "Mesas",
-    images: ["/placeholder.svg?height=400&width=600&text=Mesa+Centro+Vidro"],
+    images: [
+      "/images/products/mesa-celeste1.png?height=400&width=600&text=Mesa+Centro+Vidro",
+      "/images/products/mesa-celeste.png?height=400&width=600&text=Mesa+Centro+Vidro",
+    ],
     inStock: true,
     isNew: true,
     materials: ["Vidro Temperado", "Metal Cromado"],
-    dimensions: { width: 100, height: 45, depth: 60 },
-    weight: 18,
+    colors: ["Freijó", " Off White"],
+    dimensions: { width: 120, height: 80, depth: 90 },
   },
   {
-    id: "sofa-2-lugares-moderno",
-    name: "Sofá 2 Lugares Moderno",
-    description: "Sofá compacto de 2 lugares com design contemporâneo. Ideal para apartamentos pequenos.",
-    price: 899.99,
-    originalPrice: 1199.99,
-    category: "Sofás",
-    images: ["/placeholder.svg?height=400&width=600&text=Sofá+2+Lugares"],
+    id: "guarda-roupa-virtus",
+    name: "Guarda-Roupa Virtus",
+    description: "Guarda-roupa espaçoso com 6 portas e gavetas internas. Ideal para quartos grandes.",
+    price: 2399.99,
+    originalPrice: 2999.99,
+    category: "Guarda-Roupas",
+    images: [
+      "/images/products/Armario/guarda-roupa-virtus-01.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
+      "/images/products/Armario/guarda-roupa-virtus-02.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
+    ],
     inStock: true,
-    materials: ["Tecido", "Espuma D28", "Madeira"],
-    dimensions: { width: 140, height: 85, depth: 90 },
-    weight: 35,
-    colors: ["Azul", "Verde", "Cinza"],
+    materials: ["MDF", "Dobradiças Metálicas"],
+    dimensions: { width: 162, height: 236.4, depth: 55.5 },
+    colors: ["Branco", "Cumari",],
   },
   //Todas os tipos de camas 
   {
@@ -158,7 +147,6 @@ const products: Product[] = [
     isNew: false,
     materials: ["Madeira", "Molas Ensacadas", "Tecido", "Pistões a Gás"],
     dimensions: { width: 138, height: 65, depth: 188 },
-    weight: 120,
     colors: ["Marrom", "Bege"],
   },
   {
@@ -204,12 +192,7 @@ const promotions: Promotion[] = [
     discount: 18,
     isActive: true,
   },
-  {
-    id: "promo-guarda-roupa",
-    productId: "guarda-roupa-6-portas",
-    discount: 17,
-    isActive: true,
-  },
+
   {
     id: "promo-sofa-2-lugares",
     productId: "sofa-2-lugares-moderno",
@@ -258,10 +241,7 @@ export function getFeaturedProducts(): Product[] {
     // Check if product has originalPrice and it's higher than current price
     const hasDiscountPrice = product.originalPrice && product.originalPrice > product.price
 
-    // Check if product has an active promotion
-    const hasActivePromotion = promotions.some((promotion) => promotion.productId === product.id && promotion.isActive)
-
-    return hasDiscountPrice || hasActivePromotion
+    return hasDiscountPrice
   })
 }
 
@@ -270,15 +250,23 @@ export function getCategories(): string[] {
 }
 
 export function searchProducts(query: string): Product[] {
-  const lowercaseQuery = query.toLowerCase()
-  return products.filter(
-    (product) =>
-      product.name.toLowerCase().includes(lowercaseQuery) ||
-      product.description.toLowerCase().includes(lowercaseQuery) ||
-      product.category.toLowerCase().includes(lowercaseQuery),
-  )
+  if (!query || query.trim() === "") {
+    return products
+  }
+
+  const lowercaseQuery = query.toLowerCase().trim()
+
+  // Split query into words for better matching
+  const queryWords = lowercaseQuery.split(/\s+/)
+
+  return products.filter((product) => {
+    const searchableText = `${product.name} ${product.description} ${product.category}`.toLowerCase()
+
+    // Check if all query words are present in the searchable text
+    return queryWords.every((word) => searchableText.includes(word))
+  })
 }
 
-export function getPromotionByProductId(productId: string): Promotion | undefined {
-  return promotions.find((promotion) => promotion.productId === productId && promotion.isActive)
-}
+// export function getPromotionByProductId(productId: string): Promotion | undefined {
+//   return promotions.find((promotion) => promotion.productId === productId && promotion.isActive)
+// }
