@@ -89,20 +89,20 @@ const products: Product[] = [
   },
    //Todos os tipos de Mesas
   {
-    id: "mesa-jantar-madeira",
-    name: "Mesa de Jantar em Madeira Maciça",
-    description: "Mesa de jantar para 6 pessoas em madeira maciça com acabamento natural.",
-    price: 674.99,
-    originalPrice:899.99,
+    id: "mesa-jantar-sentra",
+    name: "Mesa de Jantar sentra",
+    description: "Conjunto Mesa Sentra 1,60 m com 6 cadeiras Flor, ideal para deixar sua sala de jantar moderna e aconchegante. A mesa possui tampo de vidro com base em MDF resistente, enquanto as cadeiras contam com pés em MDF de alta durabilidade e estofado em linho, unindo elegância, conforto e ótimo acabamento.",
+    price: 1999,
     category: "Mesas",
     images: [
-      "/placeholder.svg?height=400&width=600&text=Mesa+Jantar",
-      "/placeholder.svg?height=400&width=600&text=Mesa+Detalhe",
+      "/images/products/mesas/mesa_sentra_01.png?height=400&width=600&text=Mesa+Jantar",
+      "/images/products/mesas/mesa_sentra_02.png?height=400&width=600&text=Mesa+Detalhe",
+      "/images/products/mesas/mesa_sentra_03.png?height=400&width=600&text=Mesa+Detalhe",
     ],
     inStock: true,
-    materials: ["Madeira Maciça", "Verniz"],
-    dimensions: { width: 160, height: 75, depth: 90 },
-    weight: 35,
+    isNew: true,
+    materials: ["Base em MDF", "Tampo em Vidro", "Estofado em Linho", "Pés em MDF"],
+    dimensions: { width: 80, height: 80, depth: 160 },
   },
   {
     id: "mesa-celeste",
@@ -121,18 +121,11 @@ const products: Product[] = [
     dimensions: { width: 120, height: 80, depth: 90 },
   },
   //Todos os tipos de Cadeiras
-  {
-    id: "cadeira-escritorio-ergonomica",
-    name: "Cadeira de Escritório Ergonômica",
-    description: "Cadeira ergonômica com apoio lombar e regulagem de altura. Perfeita para home office.",
-    price: 449.99,
-    category: "Cadeiras",
-    images: ["/placeholder.svg?height=400&width=600&text=Cadeira+Escritório"],
-    inStock: false,
-    materials: ["Tecido Mesh", "Metal", "Plástico"],
-    dimensions: { width: 60, height: 120, depth: 60 },
-    weight: 12,
-  },
+
+
+
+
+
   //Todos os tipos de Guarda-Roupas
   {
     id: "guarda-roupa-virtus",
