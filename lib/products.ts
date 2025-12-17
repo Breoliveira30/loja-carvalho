@@ -44,6 +44,7 @@ const products: Product[] = [
     name: "Sofá Denver",
     description: "O Sofá Denver 230cm une conforto e estilo em um design moderno. Possui assento em espuma D28 soft com pillow de 18 cm, molas Bonnel e almofadas em fibra de silicone, garantindo maciez e durabilidade. Ideal para deixar sua sala elegante e aconchegante.",
     price: 2399.00,
+    originalPrice: 2699.00,
     category: "Sofás",
     images: [
       "/images/products/sofas/sofa_denver_02.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
@@ -75,7 +76,7 @@ const products: Product[] = [
     id: "sofa-versato",
     name: "Sofá Versato - Solar",
     description: "O Sofá Versato 2,20m oferece conforto e versatilidade, com encosto reclinável, assento em espuma D33 soft e manta siliconada. Conta com molas espiral, estrutura em madeira de reflorestamento e sistema retrátil, ideal para quem busca praticidade e aconchego no dia a dia.",
-    price: 2325.00,
+    price: 2499.00,
     category: "Sofás",
     images: [
       "/images/products/sofas/sofa_versato_01.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
@@ -92,7 +93,7 @@ const products: Product[] = [
     id: "mesa-jantar-sentra",
     name: "Mesa de Jantar sentra",
     description: "Conjunto Mesa Sentra 1,60 m com 6 cadeiras Flor, ideal para deixar sua sala de jantar moderna e aconchegante. A mesa possui tampo de vidro com base em MDF resistente, enquanto as cadeiras contam com pés em MDF de alta durabilidade e estofado em linho, unindo elegância, conforto e ótimo acabamento.",
-    price: 1999,
+    price: 2449.99,
     category: "Mesas",
     images: [
       "/images/products/mesas/mesa_sentra_01.png?height=400&width=600&text=Mesa+Jantar",
@@ -108,7 +109,7 @@ const products: Product[] = [
     id: "mesa-celeste",
     name: "Mesa de Celeste",
     description: "Conjunto de Mesa Celeste 4 Lugares em Freijó com Off White, feito em MDF/MDP, com tampo fixo resistente e design moderno para valorizar sua sala de jantar.",
-    price: 1899,
+    price: 2848.99,
     category: "Mesas",
     images: [
       "/images/products/mesa-celeste1.png?height=400&width=600&text=Mesa+Centro+Vidro",
@@ -131,7 +132,7 @@ const products: Product[] = [
     id: "guarda-roupa-virtus",
     name: "Guarda-Roupa Virtus",
     description: "Guarda-roupa espaçoso com 6 portas e gavetas internas. Ideal para quartos grandes.",
-    price: 2399.99,
+    price: 2100,
     originalPrice: 2999.99,
     category: "Guarda-Roupas",
     images: [
@@ -139,6 +140,7 @@ const products: Product[] = [
       "/images/products/Armario/guarda-roupa-virtus-02.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
     ],
     inStock: true,
+    isNew: true,
     materials: ["MDF", "Dobradiças Metálicas"],
     dimensions: { width: 162, height: 236.4, depth: 55.5 },
     colors: ["Branco", "Cumari",],
@@ -147,7 +149,7 @@ const products: Product[] = [
     id: "guarda-roupa-angra",
     name: "Guarda-Roupa Angra",
     description: "Guarda-roupa Angra com 6 portas e 2 gavetas, oferecendo ótimo espaço interno para organização. Conta com cabideiro em alumínio, prateleira interna e ferragens de qualidade, além de acabamento em pintura UV, puxadores externos e pés elevados, garantindo praticidade, durabilidade e um visual moderno para o quarto.",
-    price: 600,
+    price: 750,
     category: "Guarda-Roupas",
     images: [
       "/images/products/Armario/angra_06_portas_01.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
@@ -163,13 +165,14 @@ const products: Product[] = [
     id: "guarda-roupa-real",
     name: "Guarda-Roupa Real 4 Portas",
     description: "Guarda-roupa solteiro Real com 4 portas e 2 gavetas, produzido em MDP com acabamento em pintura UV fosca e espelho, ideal para organizar o quarto com praticidade e estilo.",
-    price: 600,
+    price: 490,
     category: "Guarda-Roupas",
     images: [
       "/images/products/Armario/guarda_roupa_real_01.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
       "/images/products/Armario/guarda_roupa_real_02.png?height=400&width=600&text=Guarda-Roupa+6+Portas",
     ],
     inStock: true,
+    isNew: true,
     materials: ["MDP"],
     dimensions: { width: 99, height: 1.80, depth: 40 },
     colors: ["Bege"],
@@ -179,7 +182,7 @@ const products: Product[] = [
     id: "balcao-lemon",
     name: "Balcão Aéreo Lemon",
     description: "Balcão aéreo Lemon, produzido em MDF, oferecendo resistência, durabilidade e um acabamento moderno que valoriza o ambiente com praticidade e elegância.",
-    price: 500,
+    price: 419,
     category: "Balcões",
     images: [
       "/images/products/balcoes/balcao_lemon_01.png?height=400&width=600&text=Balcao+Lemon",
@@ -196,7 +199,7 @@ const products: Product[] = [
     id: "balcao-mila",
     name: "Balcão Mila",
     description: "Balcão Mila para fogão cooktop 4 ou 5 bocas, produzido em MDF, com estrutura resistente e acabamento de qualidade. Disponível nas cores Branco, Preto e Avelã, ideal para compor uma cozinha prática e moderna.",
-    price: 300,
+    price: 309,
     category: "Balcões",
     images: [
       "/images/products/balcoes/balcao_mila_01.png?height=400&width=600&text=Balcao+Mila",
@@ -213,7 +216,7 @@ const products: Product[] = [
     id: "balcao-fit",
     name: "Balcão Fit",
     description: "Balcão Fit para fogão cooktop 4 ou 5 bocas, fabricado em MDF, com estrutura resistente e acabamento moderno. Disponível nas cores Freijó/Off, Branco, Preto, Carvalho/Chumbo e Carvalho Nature, ideal para uma cozinha funcional e elegante.",
-    price: 380,
+    price: 439,
     category: "Balcões",
     images: [
       "/images/products/balcoes/balcao_fit_01.jpg?height=400&width=600&text=Balcao+Fit",
@@ -240,7 +243,7 @@ const products: Product[] = [
 
     ],
     inStock: true,
-    isNew: false,
+    isNew: true,
     materials: ["Madeira", "Molas Ensacadas", "Tecido", "Pistões a Gás"],
     dimensions: { width: 138, height: 65, depth: 188 },
     colors: ["Marrom", "Bege"],
@@ -249,7 +252,7 @@ const products: Product[] = [
     id: "cama-queen-box",
     name: "Cama Box Queen",
     description: "Conjunto Box Queen com Colchão AirTech: base reforçada e colchão com tecnologia de ventilação que garante conforto, frescor e suporte ideal para noites de sono muito mais tranquilas e revigorantes.",
-    price: 1300,
+    price: 1499,
     category: "Camas",
     images: [
       "/images/products/cama_queen.jpg?height=400&width=600&text=Cama+Box+Casal",
@@ -265,7 +268,7 @@ const products: Product[] = [
     id: "cama-infantil-cercado",
     name: "Cama Infantil Montessoriana",
     description: "Linda cama montessoriana, perfeita para o quarto do seu filho! Design moderno e seguro, ideal para o desenvolvimento infantil. Conforto e estilo garantidos!",
-    price: 630,
+    price: 998,
     category: "Camas",
     images: [
       "/images/products/cama_infantil.png?height=400&width=600&text=Cama+Box+Casal",
